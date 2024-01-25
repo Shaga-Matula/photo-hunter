@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-shagamatula-photohunter-hav945uv49w.ws-eu107.gitpod.io']
+ALLOWED_HOSTS = ['8000-shagamatula-photohunter-hav945uv49w.ws-eu107.gitpod.io','photo-hunter-c27362557b2b.herokuapp.com']
 
 
 # Application definition
