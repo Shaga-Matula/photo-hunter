@@ -1,1 +1,1 @@
-web: gunicorn PhotoHuntergit add .wsgi
+web: gunicorn PhotoHunter.wsgi
