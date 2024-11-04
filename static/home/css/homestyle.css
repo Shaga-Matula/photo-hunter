@@ -1,0 +1,23 @@
+body {
+  padding-top: 50px;
+}
+.main-center{
+  padding: 40px 15px;
+  text-align: center;
+}
+.red{
+  background-color: red;
+  background-color: red; /* Set the background color as per your requirement */
+  padding: 20px; /* Add padding for better spacing */
+  margin-left: 50%; /* Center the div to the left at 50% */
+  transform: translateX(-50%); /* Adjust for centering */
+}
+.green{
+  background-color: green;
+}
+.blue{
+  background-color: blue;
+}
+.yellow{
+  background-color: yellow;
+}
