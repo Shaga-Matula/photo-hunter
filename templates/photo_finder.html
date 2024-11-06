@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Lister</title>
+</head>
+<body>
+    <h1>File Lister</h1>
+    <form id="file-lister-form" method="post">
+        {% csrf_token %}
+        <input type="text" name="directory" placeholder="Enter directory path" required>
+        <button type="submit">List Files</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+    document.getElementById('file-lister-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        
+        fetch('{% url "photo_finder" %}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                document.getElementById('results').innerHTML = 'Error: ' + data.error;
+            } else {
+                let html = '<h2>Files Found:</h2><ul>';
+                data.files.forEach(file => {
+                    html += `<li>${file}</li>`;
+                });
+                html += '</ul>';
+                document.getElementById('results').innerHTML = html;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('results').innerHTML = 'An error occurred.';
+        });
+    });
+    </script>
+</body>
+</html>
